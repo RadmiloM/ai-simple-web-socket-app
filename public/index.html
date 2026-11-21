@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e9eee8">
+    <title>Wire | Simple Chat</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/client.js" defer></script>
+</head>
+
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Chat workspace">
+            <a class="brand" href="/" aria-label="Wire home">
+                <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span class="brand-name">wire<span class="brand-period">.</span></span>
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+            <div class="workspace-name"><span class="workspace-avatar">S</span> Small talk</div>
+
+            <div class="sidebar-label room-label">CHANNELS <span>01</span></div>
+            <div class="room-link" aria-current="page">
+                <span class="room-hash">#</span>
+                <span>lobby</span>
+                <span class="room-live"><i></i> LIVE</span>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-rule"></div>
+                <div class="server-mark"><span class="server-mark-dot"></span> SERVER <span>LOCAL</span></div>
+                <div class="sidebar-caption">ROOM 01 <span>·</span> OPEN</div>
+            </div>
+        </aside>
+
+        <main class="chat-panel">
+            <header class="room-header">
+                <div>
+                    <div class="eyebrow">CHANNEL <span>/</span> GENERAL</div>
+                    <h1>Lobby</h1>
+                </div>
+                <div class="connection-wrap">
+                    <span id="connection-indicator" class="connection-indicator" data-state="connecting"
+                        aria-hidden="true"></span>
+                    <span id="connection-status" class="connection-status" role="status"
+                        aria-live="polite">Connecting</span>
+                    <button id="reconnect-button" class="retry-button" type="button" hidden>Retry</button>
+                </div>
+            </header>
+
+            <section class="conversation" aria-label="Conversation">
+                <div class="conversation-date"><span></span>
+                    <p>THE LOBBY IS OPEN</p><span></span>
+                </div>
+                <ol id="message-list" class="message-list" aria-label="Chat messages" aria-live="polite"
+                    aria-relevant="additions">
+                    <li id="empty-state" class="empty-state">
+                        <span class="empty-mark" aria-hidden="true">+</span>
+                        <p>It starts with hello.</p>
+                    </li>
+                </ol>
+            </section>
+
+            <footer class="composer-area">
+                <form id="message-form" class="composer">
+                    <label class="name-field">
+                        <span class="field-label">SENDING AS</span>
+                        <input id="name-input" name="name" type="text" maxlength="24" value="Guest"
+                            autocomplete="nickname" aria-label="Your name">
+                    </label>
+                    <label class="message-field">
+                        <span class="field-label">MESSAGE</span>
+                        <input id="message-input" name="message" type="text" maxlength="1000"
+                            placeholder="Write something..." autocomplete="off" required>
+                    </label>
+                    <button class="send-button" type="submit">Send</button>
+                </form>
+                <div id="composer-note" class="composer-note" aria-live="polite"></div>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>
